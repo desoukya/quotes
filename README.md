@@ -89,14 +89,6 @@ LOGS:
 sudo cat /var/log/elasticsearch/AD.log
 `
 
-Expose the ports:
-
-```
-sudo ufw allow ssh
-sudo ufw allow 'Nginx Full'
-sudo ufw enable
-```
-
 # Setup Nginx
 
 ```
@@ -125,6 +117,15 @@ server {
 sudo service nginx stop
 sudo service nginx start
 ```
+
+Expose the ports:
+
+```
+sudo ufw allow ssh
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+```
+
 
 to see the actual logs:
 ```
