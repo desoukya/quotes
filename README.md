@@ -179,7 +179,7 @@ sudo vim /etc/kibana/kibana.yml
 elasticsearch_url: "http://elastic.amrdesouky.com"
 server.port: 5601
 server.host: "localhost"
-server.name: "kl-kibana"
+server.name: "ad-kibana"
 ```
 Start Kibana automatically
 
@@ -187,9 +187,7 @@ Start Kibana automatically
 sudo service kibana start
 ```
 
-setup nginx
-
-`apt-get install -y nginx`
+modify nginx config
 
 ```
 sudo vim /etc/nginx/sites-available/default
@@ -213,6 +211,12 @@ server {
                 proxy_set_header 'Access-Control-Allow-Origin' '*';
         }
 }
+```
+
+stop/start nginx so configuration changes take effect
+```
+sudo service nginx stop
+sudo service nginx start
 ```
 
 // make sure nothing is running on 5601
@@ -253,4 +257,4 @@ ad-site
 
 @timestamp
 
-https://kibana.amrdesouky.com
+http://kibana.amrdesouky.com
