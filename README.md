@@ -181,11 +181,6 @@ server.port: 5601
 server.host: "localhost"
 server.name: "ad-kibana"
 ```
-Start Kibana automatically
-
-```
-sudo service kibana start
-```
 
 modify nginx config
 
@@ -218,16 +213,6 @@ stop/start nginx so configuration changes take effect
 sudo service nginx stop
 sudo service nginx start
 ```
-
-// make sure nothing is running on 5601
-```
-sudo lsof -i :5601
-ps -ef | grep node
-```
-
-if so, kill it
-
-`kill -9 {pid}`
 
 // start kibana
 
