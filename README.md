@@ -74,6 +74,11 @@ sudo service elasticsearch start
 sudo service elasticsearch status
 ```
 
+Allow connections to port 9200
+```
+sudo ufw allow 9200
+```
+
 Test connection
 ```
 curl -i -XGET 'localhost:9200/'
