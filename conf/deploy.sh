@@ -68,45 +68,20 @@ server {
 }
 ' | sudo tee /etc/nginx/sites-available/amrdesouky.com
 
-echo "-----------------"
-echo "Setup SSL CERTIFICATES"
-echo "-----------------"
-
-sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
-cd /opt/letsencrypt
-
-sudo service nginx stop
-
-sudo ./letsencrypt-auto certonly --standalone --non-interactive --agree-tos --email "amr@skykode.com" -d amrdesouky.com
-
 echo '
 server {
     listen 80;
     server_name amrdesouky.com;
-    return 301 https://$host$request_uri;
-}
-server {
-        listen 443 ssl;
-        server_name amrdesouky.com;
-        ssl_certificate     /etc/letsencrypt/live/amrdesouky.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/amrdesouky.com/privkey.pem;
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-        ssl_prefer_server_ciphers on;
-        ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
-        root /usr/share/nginx/html;
-        index index.html index.htm;
-        location / {
-                client_max_body_size 200M;
-                proxy_pass http://localhost:3000;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header Host $host;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header 'Access-Control-Allow-Origin' '*';
-        }
-        location ~ /.well-known {
-                allow all;
-        }
+
+    location / {
+            client_max_body_size 200M;
+            proxy_pass http://localhost:3000;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Host $host;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header 'Access-Control-Allow-Origin' '*';
+    }
 }
 ' | sudo tee /etc/nginx/sites-available/default
 
@@ -162,7 +137,7 @@ input {
 
 output {
     elasticsearch {
-    hosts => ["kibana.amrdesouky.com:8080"]
+    hosts => ["elastic.amrdesouky.com"]
     index => "ad-site"
   }
 }
