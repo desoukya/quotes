@@ -1,0 +1,10 @@
+{
+  "name": "node-elk",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "4.15.4",
+    "random-js": "1.0.8",
+    "hjs": "0.0.6",
+    "winston": "2.3.1"
+  }
+}
