@@ -176,7 +176,7 @@ sudo apt-get update && sudo apt-get install kibana=5.5.2
 sudo vim /etc/kibana/kibana.yml
 ```
 ```
-elasticsearch_url: "http://elastic.amrdesouky.com"
+elasticsearch_url: "http://localhost:9200"
 server.port: 5601
 server.host: "localhost"
 server.name: "ad-kibana"
