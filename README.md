@@ -1,26 +1,8 @@
 # Initial setup
 
-Make sure to create a new user `ubuntu` and add it to sudoers
-
-1. `adduser ubuntu`
-2. `usermod -aG sudo ubuntu`
-3. sudo apt-get update && sudo apt-get install vim -y
-4. Disable password prompt: `sudo vim /etc/sudoers`
-    append `ubuntu ALL=(ALL) NOPASSWD: ALL` to the end of the file
-5. sudo su - ubuntu
+Assuming EC2 instance
 
 # ELASTICSEARCH
-
-Append The Following To `~/.bashrc`    
-
-```
-export LC_ALL="en_US.UTF-8"
-```
-
-Then Source 
-```
-source ~/.bashrc
-```
 
 ```
 sudo apt-get update
@@ -216,7 +198,9 @@ sudo service nginx start
 
 // start kibana
 
-`sudo service kibana start`
+`
+sudo service kibana start
+`
 
 // by default, kibana writes to stdout, check logs and make sure everything is okay
 
