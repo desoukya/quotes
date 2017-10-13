@@ -85,6 +85,7 @@ server {
 }
 ' | sudo tee /etc/nginx/sites-available/default
 
+sudo service nginx stop
 sudo service nginx start
 
 sudo chown -R $USER:$USER /var/www
@@ -127,18 +128,16 @@ echo '
 input {
   file {
     path => "/var/log/info.log"
-    type => "ad-site"
   }
   file {
     path => "/var/log/error.log"
-    type => "ad-site"
   }
 }
 
 output {
     elasticsearch {
-    hosts => ["elastic.amrdesouky.com"]
-    index => "ad-site"
+      hosts => ["elastic.amrdesouky.com:80"]
+      index => "ad-site"
   }
 }
 ' | sudo tee /etc/logstash/conf.d/logstash.conf
@@ -156,4 +155,5 @@ cd /var/www/amrdesouky.com
 echo "-------------------"
 echo "Run Application"
 echo "-------------------"
+npm i
 pm2 start server.js --name AD
