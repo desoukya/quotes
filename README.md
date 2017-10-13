@@ -4,7 +4,7 @@ Make sure to create a new user `ubuntu` and add it to sudoers
 
 1. `adduser ubuntu`
 2. `usermod -aG sudo ubuntu`
-3. sudo apt-get install vim -y
+3. sudo apt-get update && sudo apt-get install vim -y
 4. Disable password prompt: `sudo vim /etc/sudoers`
     append `ubuntu ALL=(ALL) NOPASSWD: ALL` to the end of the file
 5. sudo su - ubuntu
