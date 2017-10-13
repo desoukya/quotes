@@ -7,6 +7,7 @@ Make sure to create a new user `ubuntu` and add it to sudoers
 3. sudo apt-get install vim -y
 4. Disable password prompt: `sudo vim /etc/sudoers`
     append `ubuntu ALL=(ALL) NOPASSWD: ALL` to the end of the file
+5. sudo su - ubuntu
 
 # ELASTICSEARCH
 
