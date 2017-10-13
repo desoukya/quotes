@@ -126,6 +126,11 @@ sudo ufw allow 'Nginx Full'
 sudo ufw enable
 ```
 
+Test connection again with domain
+```
+curl -i -XGET 'elastic.amrdesouky.com/'
+```
+
 
 to see the actual logs:
 ```
